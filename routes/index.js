@@ -47,9 +47,9 @@ exports.poll = function(req, res) {
 // JSON API for creating a new poll
 exports.create = function(req, res) {
   var reqBody = req.body,
-    choces = reqBody.choices.filter(function(v){return v.text != '';}),
-    pollObj = {question: reqBody.questions, choices: choices};
-  var poll = newPoll(pollObj);
+    choices = reqBody.choices.filter(function(v){return v.text != '';}),
+    pollObj = {question: reqBody.question, choices: choices};
+  var poll = new Poll(pollObj);
   poll.save(function(err, doc){
     if(err || !doc){
       throw 'Error';

@@ -4,7 +4,7 @@ function PollListCtrl($scope, Poll) {
 }
 
 // Voting/viewing poll results
-function PollItemCtrl($scope, $routeParams) {
+function PollItemCtrl($scope, $routeParams, Poll) {
   $scope.poll = Poll.get({pollId: $routeParams.pollId});
   $scope.vote = function() {};
 }
@@ -13,7 +13,7 @@ function PollItemCtrl($scope, $routeParams) {
 function PollNewCtrl($scope, $location, Poll) {
   $scope.poll = {
     question: '',
-    choices: [ { text: '' }, { text: '' }, { text: '' }]
+    choices: [{ text: '' }, { text: '' }, { text: '' }]
   };  
   $scope.addChoice = function() {
     $scope.poll.choices.push({ text: '' });
