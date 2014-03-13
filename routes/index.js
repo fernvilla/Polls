@@ -17,7 +17,7 @@ exports.list = function(req, res) {
 // JSON API for getting a single poll
 exports.poll = function(req, res) {
   var pollId = req.params.id;
-  Poll.findByID(pollId, '', {lean:true}, function(err, poll){
+  Poll.findById(pollId, '', {lean:true}, function(err, poll){
     if (poll){
       var userVoted = false,
         userChoice,
